@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Route, Switch, Redirect} from 'react-router-dom';
+import Header from "./components/Header";
+import Dashboard from "./routes/Dashboard";
+import Heroes from "./routes/Heroes";
+import HeroDetails from "./routes/HeroDetails";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const routes = (
+        <Switch>
+            <Route path={'/dashboard'} exact component={Dashboard}/>
+            <Route path={'/heroes'} exact component={Heroes}/>
+            <Route path={'/detail'} exact component={HeroDetails}/>
+            <Route path={'/'} component={Dashboard}/>
+        </Switch>
+    );
+    return (
+        <div className="App">
+            <Header/>
+            {routes}
+        </div>
+    );
 }
 
 export default App;

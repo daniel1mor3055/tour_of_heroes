@@ -1,13 +1,12 @@
 import React, {Component} from "react";
-import {TextField} from "@material-ui/core";
 import {heroesData} from "../../heroesData/data";
+import GoBack from "../../components/GoBack";
 
 class HeroDetails extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            searchByName: '',
             displayedHeroId: '',
             displayedHeroName: '',
             displayedHeroValue: '',
@@ -16,33 +15,26 @@ class HeroDetails extends Component {
     }
 
     componentDidMount() {
-
         const urlParams = new URLSearchParams(window.location.search);
         const id = +urlParams.get('id');
         const {name, value} = heroesData.find(hero => hero.id === id);
         this.setState({
-            heroes: heroesData,
+            heroes: heroesData.concat(),
             displayedHeroId: id,
             displayedHeroName: name,
             displayedHeroValue: value,
         });
     }
 
-    handleChange = (event) => {
-        this.setState({searchByName: event.target.value});
-    };
-
     render() {
-        const {searchByName, displayedHeroId, displayedHeroName, displayedHeroValue} = this.state;
+        const {displayedHeroId, displayedHeroName, displayedHeroValue} = this.state;
 
         return (
             <div className={'HeroDetails'}>
-                <h2>{`${searchByName} Details`}</h2>
+                <h2>{`${displayedHeroName} Details`}</h2>
                 <p>{`id: ${displayedHeroId}`}</p>
                 <p>{`value: ${displayedHeroValue}`}</p>
-                <p>name:</p>
-                <TextField value={displayedHeroName} onChange={this.handleChange} placeholder={'name'}
-                           variant="outlined"/>
+                <GoBack/>
             </div>
         );
     }

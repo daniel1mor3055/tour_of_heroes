@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from 'prop-types';
-
+import './index.css'
 const TopHeroesList = ({children}) => {
     return (
-        <ul>
+        <nav className={'TopHeroes-list'}>
             {children}
-        </ul>
+        </nav>
     );
 };
 

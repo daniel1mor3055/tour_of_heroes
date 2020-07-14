@@ -1,0 +1,7 @@
+.TopHeroesListItem{
+    display: inline;
+    width: 25%;
+    padding: 20px;
+    margin: 10px;
+    background: #607D8B;
+}

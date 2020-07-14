@@ -14,7 +14,7 @@ class TopHeroes extends Component {
 
     componentDidMount() {
         this.setState({
-            heroes: heroesData,
+            heroes: heroesData.concat(),
         });
     }
 
@@ -26,7 +26,7 @@ class TopHeroes extends Component {
                 <h2>Top Heroes</h2>
                 <TopHeroesList>
                     {[...heroes].sort(heroCompare).filter((hero, index) => index < 4).map(hero => <TopHeroesListItem
-                        name={hero.name}/>)}
+                        name={hero.name} id={hero.id}/>)}
                 </TopHeroesList>
             </div>
         );

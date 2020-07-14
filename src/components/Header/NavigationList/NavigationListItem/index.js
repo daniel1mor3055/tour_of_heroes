@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 
 const NavigationListItem = ({name, path}) => {
     return (
-        <li>
-            <NavLink to={path}>{name}</NavLink>
-        </li>
+            <NavLink exact to={path}>{name}</NavLink>
     );
 };
 

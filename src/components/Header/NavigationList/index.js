@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 
 const NavigationList = ({children}) => {
     return (
-        <ul>
+        <nav>
             {children}
-        </ul>
+        </nav>
     )
 }
 

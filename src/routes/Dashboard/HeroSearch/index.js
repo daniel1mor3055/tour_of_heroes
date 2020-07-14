@@ -16,7 +16,7 @@ class HeroSearch extends Component {
 
     componentDidMount() {
         this.setState({
-            heroesOptions: heroesData,
+            heroesOptions: heroesData.concat(),
         });
     }
 
@@ -29,7 +29,7 @@ class HeroSearch extends Component {
 
         return (
             <div className={'HeroSearch'}>
-                <h2>Hero Search</h2>
+                <h3>Hero Search</h3>
                 <Autocomplete
                     id="heroSearchAutoCompletee"
                     options={heroesOptions.map(hero => hero.name)}
@@ -42,7 +42,7 @@ class HeroSearch extends Component {
                             variant="outlined"/>}
                 />
                 {heroesOptions.some(hero => hero.name === heroToSearch) ?
-                    <Redirect
+                    <Redirect push={'true'}
                         to={`/detail?id=${heroesOptions.find(hero => hero.name === heroToSearch).id}`}/>
                     : null}
             </div>

@@ -1,4 +1,4 @@
-export const heroesData=[
+export let heroesData=[
     {
         name: 'Dr Nice',
         value: 1,

@@ -1,0 +1,9 @@
+.HeroesAdd{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.HeroesAdd-textField{
+    margin: 10px
+}

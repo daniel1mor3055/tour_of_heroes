@@ -13,12 +13,8 @@ class App extends Component {
         super(props);
 
         this.state = {
-            heroes: [],
+            heroes: heroesData.concat(),
         };
-    }
-
-    componentDidMount() {
-        this.setState({ heroes: heroesData.concat() });
     }
 
     handleDelete = (event, id) => {

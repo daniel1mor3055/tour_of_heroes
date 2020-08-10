@@ -15,8 +15,8 @@ class HeroDetails extends Component {
     }
 
     componentDidMount() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const id = +urlParams.get('id');
+        const url = new URL(window.location);
+        const id = +url.pathname.split('/')[2];
         const {name, value} = heroesData.find(hero => hero.id === id);
         this.setState({
             heroes: heroesData.concat(),

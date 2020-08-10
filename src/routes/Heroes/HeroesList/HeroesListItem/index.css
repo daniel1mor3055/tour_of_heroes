@@ -1,0 +1,11 @@
+.HeroesListItem{
+
+}
+
+.HeroesListItem span{
+    padding: 2px 2px;
+    margin-right: 10px;
+    color: white;
+    background-color: #405061;
+    border-radius: 4px 0 0 4px;
+}

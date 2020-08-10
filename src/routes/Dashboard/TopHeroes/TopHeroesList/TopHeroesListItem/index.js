@@ -6,7 +6,7 @@ import {NavLink} from "react-router-dom";
 const TopHeroesListItem = ({name, id}) => {
     return (
         <div className={'TopHeroesListItem'}>
-            <NavLink to={`/detail?id=${id}`}>{name}</NavLink>
+            <NavLink to={`/detail/${id}`}>{name}</NavLink>
         </div>
     );
 };

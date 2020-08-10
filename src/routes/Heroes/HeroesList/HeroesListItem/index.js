@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import {NavLink} from "react-router-dom";
+import './index.css'
 
 
 const HeroesListItem = ({name, id, handleDelete}) => {
     return (
         <li className={'HeroesListItem'}>
-            <NavLink to={`/detail?id=${id}`}>
+            <NavLink to={`/detail/${id}`}>
                 <span>{id}</span>
                 {name}
             </NavLink>

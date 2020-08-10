@@ -43,7 +43,7 @@ class HeroSearch extends Component {
                 />
                 {heroesOptions.some(hero => hero.name === heroToSearch) ?
                     <Redirect push={'true'}
-                        to={`/detail?id=${heroesOptions.find(hero => hero.name === heroToSearch).id}`}/>
+                        to={`/detail/${heroesOptions.find(hero => hero.name === heroToSearch).id}`}/>
                     : null}
             </div>
         );

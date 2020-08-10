@@ -1,5 +1,4 @@
-import React, {Component} from "react";
-import {heroesData} from "../../heroesData/data";
+import React, { Component } from "react";
 import GoBack from "../../components/GoBack";
 
 class HeroDetails extends Component {
@@ -10,16 +9,15 @@ class HeroDetails extends Component {
             displayedHeroId: '',
             displayedHeroName: '',
             displayedHeroValue: '',
-            heroes: [],
         };
     }
 
     componentDidMount() {
-        const url = new URL(window.location);
-        const id = +url.pathname.split('/')[2];
-        const {name, value} = heroesData.find(hero => hero.id === id);
+        const { heroes } = this.props;
+        const pathSplit = window.location.pathname.split('/');
+        const id = +pathSplit[pathSplit.length - 1];
+        const { name, value } = heroes.find(hero => hero.id === id);
         this.setState({
-            heroes: heroesData.concat(),
             displayedHeroId: id,
             displayedHeroName: name,
             displayedHeroValue: value,
@@ -27,7 +25,7 @@ class HeroDetails extends Component {
     }
 
     render() {
-        const {displayedHeroId, displayedHeroName, displayedHeroValue} = this.state;
+        const { displayedHeroId, displayedHeroName, displayedHeroValue } = this.state;
 
         return (
             <div className={'HeroDetails'}>

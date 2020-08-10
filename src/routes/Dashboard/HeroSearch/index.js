@@ -1,8 +1,7 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import {TextField} from '@material-ui/core';
-import {heroesData} from "../../../heroesData/data";
-import {Redirect} from "react-router";
+import { TextField } from '@material-ui/core';
+import { Redirect } from "react-router";
 
 class HeroSearch extends Component {
     constructor(props) {
@@ -10,30 +9,24 @@ class HeroSearch extends Component {
 
         this.state = {
             heroToSearch: '',
-            heroesOptions: [],
         };
     }
 
-    componentDidMount() {
-        this.setState({
-            heroesOptions: heroesData.concat(),
-        });
-    }
-
     handleChange = (event, value) => {
-        this.setState({heroToSearch: value});
+        this.setState({ heroToSearch: value });
     };
 
     render() {
-        const {heroToSearch, heroesOptions} = this.state;
+        const { heroToSearch } = this.state;
+        const { heroes } = this.props;
 
         return (
             <div className={'HeroSearch'}>
                 <h3>Hero Search</h3>
                 <Autocomplete
                     id="heroSearchAutoCompletee"
-                    options={heroesOptions.map(hero => hero.name)}
-                    style={{width: 300}}
+                    options={heroes.map(hero => hero.name)}
+                    style={{ width: 300 }}
                     onChange={this.handleChange}
                     renderInput={(params) =>
                         <TextField
@@ -41,9 +34,9 @@ class HeroSearch extends Component {
                             label={"Hero Search"}
                             variant="outlined"/>}
                 />
-                {heroesOptions.some(hero => hero.name === heroToSearch) ?
+                {heroes.some(hero => hero.name === heroToSearch) ?
                     <Redirect push={'true'}
-                        to={`/detail/${heroesOptions.find(hero => hero.name === heroToSearch).id}`}/>
+                              to={`/detail/${heroes.find(hero => hero.name === heroToSearch).id}`}/>
                     : null}
             </div>
         );

@@ -2,11 +2,11 @@ import React from 'react';
 import TopHeroes from "./TopHeroes";
 import HeroSearch from "./HeroSearch";
 
-const Dashboard = () => {
+const Dashboard = ({ heroes }) => {
     return (
         <div className={'DashboardPage'}>
-            <TopHeroes/>
-            <HeroSearch/>
+            <TopHeroes heroes={heroes}/>
+            <HeroSearch heroes={heroes}/>
         </div>
     );
 };

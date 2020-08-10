@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Header from "./components/Header";
 import Dashboard from "./routes/Dashboard";
 import Heroes from "./routes/Heroes";
@@ -52,8 +52,8 @@ class App extends Component {
                                                                          handleAdd={this.handleAdd}/>}/>
                 <Route path={'/detail'} render={(props) => <HeroDetails {...props}
                                                                         heroes={heroes}/>}/>
-                <Route path={'/'} render={(props) => <Dashboard {...props}
-                                                                heroes={heroes}/>}/>
+                <Redirect push from={'/'} to={'/dashboard'} render={(props) => <Dashboard {...props}
+                                                                                          heroes={heroes}/>}/>
             </Switch>
         );
         return (
